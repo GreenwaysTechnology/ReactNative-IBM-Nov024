@@ -1,0 +1,11 @@
+				 React Native 
+
+
+Software setup:
+...............
+
+1.node.js
+2.vscode
+Mobile setup
+3.java 17
+4.Android
