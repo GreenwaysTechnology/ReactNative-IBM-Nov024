@@ -368,4 +368,137 @@ console.log(`b ${b}`)
 b = 90
 console.log(`b ${b}`)
 .....................................................................................
+.....................................................................................
+			   Functions
+....................................................................................
+
+functions are building block of javascript language.
+functions encapsulate the logic of application.
+functions may take args and return values
+
+
+//basic function declaration
+
+function sayHello() {
+    console.log('hello')
+}
+//invoke function 
+sayHello()
 			
+..
+
+function args,parameters, with default value
+//default args and parameters
+
+function math(a = 0, b = 0) {
+    let c = a * b
+    console.log(`Result is ${c}`)
+}
+math(10, 10)
+math("a", "b")
+math()
+
+functions and return values:
+............................
+function math(a = 0, b = 0) {
+   return a * b
+}
+const result = math(10, 10)
+console.log(result)
+console.log(math())
+
+....................................................................................
+			  Functional Programming
+....................................................................................
+According to functional programming, function is just value like numbers,strings.
+
+since function is value can be assigned to a variable.
+
+If you assign the function with variable, then that function can be called with variableName.
+
+if you declare function with variables, without function name called "Anonymous function".
+
+//a is variable
+//let is keyword
+//10 is literal - number literal
+let a = 10;
+//function itself is literal accoriding to functional programming.
+
+//hello is just variable,holding function value(literal)
+let hello = function () {
+    console.log('hello')
+}
+//since function is value , can be assigned to variable, later that variable can be used to invoke that function. 
+//function without name is called anonymous function 
+hello()
+
+............
+
+AnonyMous functions and args values:
+......................................
+
+//anonymous fun and args 
+
+let add = function (a = 0, b = 0) {
+    let c = a + b
+    console.log(`C ${c}`)
+}
+
+add(10, 10)
+add()
+
+anonymous functions and return values:
+//anonymous fun and args 
+
+let add = function (a = 0, b = 0) {
+    let c = a + b
+    return c 
+}
+
+console.log(add(10, 10))
+console.log(add())
+.....................................................................................
+			Anonymous function with arrow notation
+				Arrow functions
+.....................................................................................
+//es 5 anonymous function
+let hello = function () {
+    console.log('hello')
+}
+hello()
+//es 6 arrow anonymous function
+let hai = () => {
+    console.log('hai')
+}
+hai()
+//short cut: if function body has only one line of code: we can remove {}
+hai = () => console.log('hai')
+hai()
+//arrow with parameters
+let math = (a = 0, b = 0) => {
+    let c = a * b
+    console.log(`C ${c}`)
+}
+math(10, 10)
+//arrow with parameters, with return
+let multiply = (a = 0, b = 0) => {
+    return a * b
+}
+console.log(multiply(10, 10))
+
+//if fun has only return statement, we can remove {} and return statement
+multiply = (a = 0, b = 0) => a * b
+console.log(multiply(10, 10))
+
+
+.....................................................................................			 	Higher order functions
+....................................
+Since function is value can be passed to another function as parameter(value) and also return function from  another function.
+
+
+
+
+
+
+
+
