@@ -31,20 +31,36 @@ const showdashbaord = (status, resolve, reject) => {
     })
 }
 
-async function main() {
+function main() {
+    // getUser(user => {
+    //     login(user, status => {
+    //         showdashbaord(status, adminPage => {
+    //             console.log(adminPage)
+    //         }, errPage => {
+    //             console.log(errPage)
+    //         })
+    //     }, err => {
+    //         console.log(err)
+    //     })
+    // }, err => {
+    //     console.log(err)
+    // })
+
     // getUser()
-    //     .then(user => login(user))
-    //     .then(status => showdashbaord(status))
-    //     .then(page => console.log(page))
+    //     .then(user => {
+    //         return login(user)
+    //     })
+    //     .then(status => {
+    //         return showdashbaord(status)
+    //     })
+    //     .then(page => {
+    //         console.log(page)
+    //     })
     //     .catch(err => { console.log(err) })
-    try {
-        const user = await getUser()
-        const status = await login(user)
-        const page = await showdashbaord(status)
-        console.log(page)
-    }
-    catch (err) {
-        console.log(err)
-    }
+    getUser()
+        .then(user => login(user))
+        .then(status => showdashbaord(status))
+        .then(page => console.log(page))
+        .catch(err => { console.log(err) })
 }
 main()
