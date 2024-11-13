@@ -1369,3 +1369,164 @@ async function main() {
     }
 }
 main()
+....................................................................................
+			  Module Pattern-ES 6 Modules
+.....................................................................................
+Module patterns
+1.namespace design pattern
+2.AMD
+3.Commonjs
+4.ES 6 Module pattern
+5.System
+6.UMD
+
+COMMON JS and ES 6 only in dev..
+
+
+How to write code across files and folders?
+
+src/util/myutil.js
+src/services/Todo.service.js
+
+Module pattern provides keywords:
+
+1.export,export default -  to share code
+2.import - link files
+
+
+src/lib.js
+export const firstName = 'Subramnaian'
+
+src/index.js
+import { firstName } from "./lib.js";
+
+
+function main(){
+  console.log(firstName)
+}
+main()
+
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 APPS</title>
+</head>
+<body>
+    <h1>ES 6 apps</h1>
+    <script src="src/index.js" type="module"></script>
+</body>
+</html>
+
+/...
+
+src/lib.js
+// export const firstName = 'Subramnaian'
+// export const lastName = 'Murugan'
+// export const city = 'Coimbatore'
+// export const skills = ['java', 'js', 'react']
+// export const isActive = true
+// export const isEnabled = () => true
+
+const firstName = 'Subramnaian'
+const lastName = 'Murugan'
+const city = 'Coimbatore'
+const skills = ['java', 'js', 'react']
+const isActive = true
+const isEnabled = () => true
+
+export { firstName, lastName, city, skills, isActive, isEnabled }
+
+src/index.js
+import { firstName,lastName,isActive,isEnabled,skills } from "./lib.js";
+
+
+function main(){
+  console.log(firstName,lastName)
+  console.log(isActive)
+  console.log(isEnabled())
+  console.log(skills)
+
+}
+main()
+.....................................................................................
+			export default
+.....................................................................................
+
+
+// export default class TodoService {
+
+//     findAll() {
+//         return [{
+//             id: 1, status: true, text: 'learn todo'
+//         }]
+//     }
+// }
+class TodoService {
+
+    findAll() {
+        return [{
+            id: 1, status: true, text: 'learn todo'
+        }]
+    }
+}
+
+export default TodoService;
+
+// export default class CustomerService {
+
+//     findAll() {
+//         return [{
+//             id: 1, status: true, text: 'learn todo'
+//         }]
+//     }
+// }
+
+
+src/index.js
+import TodoService from "./todo.service.js";
+
+function main() {
+    let todoService = new TodoService()
+    console.log(todoService.findAll())
+}
+main()
+
+Note:
+1.per file only one export default is allowed.
+.....................................................................................
+			export and export default together
+...................................................................................
+
+src/util.js
+export const message = 'Hello'
+export const name = 'Subramanian'
+export default class Greeter {
+    sayGreet() {
+        return 'greet'
+    }
+}
+
+src/index.js
+import Greeter, { name, message } from "./util.js";
+
+function main(){
+  let greet = new Greeter();
+  console.log(greet.sayGreet())
+  console.log(name,message)
+}
+main()
+
+
+
+
+
+
+
+
+
+
+
+
