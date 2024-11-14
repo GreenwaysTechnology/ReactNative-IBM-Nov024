@@ -1,13 +1,5 @@
 import { createRoot } from "react-dom/client"
-import logo from './assets/react.svg';
-
-const heading = () => {
-    return <div>
-        <img src={logo} />
-    </div>
-}
+import App from './App'
 
 
-createRoot(document.getElementById('root')).render(<heading />)
-
-
+createRoot(document.getElementById('root')).render(<App />)
