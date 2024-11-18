@@ -3,31 +3,34 @@ import React from "react";
 
 class Review extends React.Component {
     state = {
-        like: 0,
-        dislike: 0
+        house: {
+            name: 'RavenClaw',
+            points: 10
+        },
+
     }
+
     onLike = () => {
         this.setState(prevState => {
-            return { ...prevState, like: prevState.like + 1 }
-        })
-    }
-    onDislike = () => {
-        this.setState(prevState => {
-            return { ...prevState, dislike: prevState.dislike + 1 }
+            return {
+                ...prevState, //level-0-copy // copy all outer keys of state
+                house: {
+                    ...prevState.house, // level-1 copy //copy all state except points
+                    points: prevState.house.points + 1
+                }
+            }
         })
     }
     render() {
-        return <ReviewDashboard {...this.state} onLike={this.onLike} onDislike={this.onDislike} />
+        return <div>
+            <h1>House Review App</h1>
+            <h2>{this.state.house.name}</h2>
+            <h2>Points {this.state.house.points}</h2>
+            <button onClick={this.onLike}>Like</button>
+        </div>
     }
 }
-const ReviewDashboard = props => {
-    return <div>
-        <h1>Review App</h1>
-        <h2>Like : {props.like}  Dislike : {props.dislike}</h2>
-        <button onClick={props.onLike}>Like</button>
-        <button onClick={props.onDislike}>Dislike</button>
-    </div>
-}
+
 
 function App() {
     return <>

@@ -1576,6 +1576,7 @@ Class Pattern:
 
 Use case: 1.Declare Component
 import React  from "react";
+
 class Review extends React.Component {
 
   render() {
@@ -2268,6 +2269,138 @@ function App() {
     </>
 }
 export default App;
+
+.......................................................................................................
+                            setState and Object Destructuring
+.....................................................................................................
+								
+import React from "react";
+
+
+class Review extends React.Component {
+    state = {
+        like: 0,
+        dislike: 0
+    }
+    onLike = () => {
+        // this.setState(prevState => {
+        //     return { ...prevState, like: prevState.like + 1 }
+        // })
+        // this.setState(prevState => ({ ...prevState, like: prevState.like + 1 }))
+
+        this.setState(({ ...this.state, like: this.state.like + 1 }))
+
+    }
+    onDislike = () => {
+        // this.setState(prevState => ({ ...prevState, dislike: prevState.dislike + 1 }))
+        this.setState(({ ...this.state, dislike: this.state.dislike + 1 }))
+
+    }
+    render() {
+        return <ReviewDashboard {...this.state} onLike={this.onLike} onDislike={this.onDislike} />
+    }
+}
+const ReviewDashboard = props => {
+    return <div>
+        <h1>Review App</h1>
+        <h2>Like : {props.like}  Dislike : {props.dislike}</h2>
+        <button onClick={props.onLike}>Like</button>
+        <button onClick={props.onDislike}>Dislike</button>
+    </div>
+}
+
+function App() {
+    return <>
+        <Review />
+    </>
+}
+export default App;
+
+.....................................................................................................
+									Nested State
+....................................................................................................
+
+simple state:
+
+state = {
+   like:0
+}
+
+
+State with in state:
+...................
+state= {
+   house:{
+     name:'RavenClaw',
+     points:10
+   }
+}
+import React from "react";
+
+
+class Review extends React.Component {
+    state = {
+        house: {
+            name: 'RavenClaw',
+            points: 10
+        },
+
+    }
+
+    onLike = () => {
+        this.setState(prevState => {
+            return {
+                ...prevState, //level-0-copy // copy all outer keys of state
+                house: {
+                    ...prevState.house, // level-1 copy //copy all state except points
+                    points: prevState.house.points + 1
+                }
+
+            }
+        })
+    }
+    render() {
+        return <div>
+            <h1>House Review App</h1>
+            <h2>{this.state.house.name}</h2>
+            <h2>Points {this.state.house.points}</h2>
+            <button onClick={this.onLike}>Like</button>
+        </div>
+    }
+}
+
+
+function App() {
+    return <>
+        <Review />
+    </>
+}
+export default App;
+
+.....................................................................................
+				Deep Nesting
+.....................................................................................
+
+Assigment:
+    state = {
+        customer: {
+            id: 1,
+            name: 'Subramanian',
+            contact: {
+                address: {
+                    city: 'Chennai'
+                },
+                communcation: {
+                    mobileNo: '9000000'
+                }
+            }
+        }
+    }
+
+How to update mobileNo - 834343434
+
+
+
 
 
 
