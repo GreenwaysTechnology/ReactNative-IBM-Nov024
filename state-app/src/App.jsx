@@ -1,63 +1,94 @@
-import { produce } from "immer";
-import React from "react";
+import { produce } from "immer"
+import { useState } from "react"
 
-class ProductsRestAPI extends React.Component {
+const Post = props => {
+    //inital data with some sample posts
+    const [posts, setPosts] = useState([
+        { id: 1, title: 'Post 1', body: 'this is firstPost' },
+        { id: 2, title: 'Post 2', body: 'this is secondPost' }
+    ])
 
-    state = {
-        products: [],
-        error: null,
-        isLoading: false
+    //to handle forms
+    const [form, setForm] = useState({ title: '', body: '', id: null })
+
+    //to handle submit button either add or update
+    const [isEditing, setIsEditing] = useState(false)
+
+    const updatePost = () => {
+        setPosts(posts.map(post => (post.id === form.id ? form : post)));
+        setForm({ title: '', body: '', id: null })
+        setIsEditing(false)
+    }
+    const addPost = () => {
+        const newPost = { id: Date.now(), title: form.title, body: form.body }
+        setPosts([...posts, newPost])
+        //reset form
+        setForm({ title: '', body: '', id: null })
     }
 
-
-    async componentDidMount() {
-        //write api call - fetch
-        try {
-            const url = `https://api.escuelajs.co/api/v1/products`
-            const response = await fetch(url)
-            const data = await response.json()
-            this.setState(produce(this.state, draft => {
-                draft.products = data
-                draft.isLoading = true
-            }))
-        }
-        catch (err) {
-            this.setState(produce(this.state, (draft) => {
-                draft.error = err
-                draft.isLoading = true
-            }))
-        }
+    //listeners
+    const handleSubmit = e => {
+        e.preventDefault()
+        isEditing ? updatePost() : addPost()
     }
-    render() {
-        //show data,error,isLoading
-        const { products, error, isLoading } = this.state
-        //conditional rendering: how to use if...else..elseif
-        if (error) {
-            return <div>
-                <h1>Error : {error.message}</h1>
+
+    const handleEdit = post => {
+        setForm({ title: post.title, body: post.body, id: post.id })
+        setIsEditing(true)
+    }
+
+    const deletePost = (id) => {
+        setPosts(posts.filter(post => post.id !== id))
+    }
+
+    return <div>
+        <h1>React CURD Application using Plain Array</h1>
+        {/* Form to add new Post */}
+        <form onSubmit={handleSubmit}>
+            <div>
+                <input
+                    type="text"
+                    placeholder="Title"
+                    value={form.title}
+                    required
+                    onChange={e => setForm({ ...form, title: e.target.value })}
+                />
             </div>
-        } else if (!isLoading) {
-            return <h1>Loading...</h1>
-        } else {
-            return <div>
-                <h1>Products</h1>
-                <hr />
-                <div>
-                    {
-                        products.map(product => {
-                            return <section key={product.id}>
-                                <img src={product.category.image} height={200} width={200} />
-                                <h1>{product.title} </h1>
-                                <p>{product.description}</p>
-                                <h5>{product.price}</h5>
-                            </section>
-                        })
-                    }
-                </div>
+            <div>
+                <textarea
+                    placeholder="Body"
+                    value={form.body}
+                    required
+                    onChange={e => setForm({ ...form, body: e.target.value })}
+                />
             </div>
-        }
-    }
+            <div>
+                <button type="submit">{isEditing ? 'Update' : 'Add'} Post</button>
+            </div>
+        </form>
+
+        {/* List of posts */}
+        <ul>
+            {
+                posts.map(post => {
+                    return <li key={post.id}>
+                        <h2>{post.title}</h2>
+                        <p>{post.body}</p>
+                        <button onClick={() => {
+                            handleEdit(post)
+                        }} >Edit</button>
+                        <button onClick={() => {
+                            deletePost(post.id)
+                        }} >Delete</button>
+                    </li>
+                })
+            }
+        </ul>
+    </div>
 }
+
 export default function App() {
-    return <ProductsRestAPI />
+    return <>
+        <Post />
+    </>
 }
