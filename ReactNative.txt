@@ -1,0 +1,120 @@
+                                        React Native
+.....................................................................................
+
+What is React Native?
+
+1.React Native is js lib for building native mobile apps 
+2.React Native combines the best parts of native development with React, a best-in-class  JavaScript library for building user interfaces.
+
+Mobile App development:
+
+ Mobile apps are built using mobile platforms and os.
+
+Mobile platforms:
+1.Android
+2.Ios
+
+Mobile devices are acting front end devices, user interfaces communicates back end services.
+
+Dev:
+ 1.user interface developer/front end developer
+ 2.back end developer
+ 3.full stack developer.
+
+Front end developer who dev apps for  front devices.
+
+Dev generally build apps for desktops:
+  Standalone desktop apps
+  Browser based apps- javascript,html,css - react,angular,vue.....
+
+Mobile /Tab apps:
+ Dev builds apps for android platform using java , kotlin pl.
+ in iOS development, you use Swift or Objective-C.
+
+Types of mobile Apps:
+.....................
+
+1.Native Mobile
+2.Web apps
+3.Hybrid apps
+
+1.Native Mobile
+   Mobile apps are built by using native platform languages- java / Swift.
+2.Web apps
+   Apps built for browsers -Mobile browsers
+3.Hybrid  apps
+   built apps using javascript but it wont run inside browser, runs inside mobile using container(WebView).
+
+
+Hybrid apps:
+
+ Application built using javascript,css,html,looks like native apps.
+
+Why Hybrid Apps?
+
+-incase native apps, we need to maintain two code base for both platform.
+
+Why not to build one single portable app for all platforms?
+
+ That is birth of hybrid apps.
+
+Hybrids apps can be built using existing web tech- js,css,html.
+Js is simple dom language, how to access platform services such as contacts,networks,storage..
+- a lib was created -cordova , based on cordova adobe started building a framework on top of the cordova , called phoneGap.
+
+How to build mobile native apps in portable way using same javascript technology without html and css?
+
+......................................................................................................
+			   					That is birth of React Native.
+....................................................................................
+ React Native Architecture
+....................................................................................
+
+Project Setup:
+
+npx @react-native-community/cli@latest init AwesomeProject
+
+When you create project and building project
+
+1.you should create project in powershell or bash shell with admin rights.
+
+
+npx @react-native-community/cli@latest init  MyReactNativeApp
+
+
+√ Downloading template
+√ Copying template
+√ Processing template
+√ Installing dependencies
+√ Initializing Git repository
+
+
+  Run instructions for Android:
+    • Have an Android emulator running (quickest way to get started), or a device connected.
+    • cd "G:\IBM\2024\Nov\ReactiveNative-B1\MyReactNativeApp" && npx react-native run-android
+
+  Run instructions for Windows:
+    • See https://aka.ms/ReactNativeGuideWindows for the latest up-to-date instructions.
+
+
+How to run react native project either for android or ios
+
+Way 1
+npx react-native run-android
+
+Way 2
+
+npm run android
+
+Way 3
+
+npm start
+ 
+ios - i
+android - a
+
+
+
+
+
+
