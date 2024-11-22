@@ -1,146 +1,57 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { StyleSheet, View, Text, Button, TouchableHighlight, FlatList, ActivityIndicator } from 'react-native'
-import { useState, useEffect } from "react";
+import React, { useEffect } from 'react';
+import { StyleSheet, View, Text, Button, Alert } from 'react-native';
+import { Camera, useCameraDevice } from 'react-native-vision-camera';
 
-const Stack = createNativeStackNavigator();
+const App = () => {
+    const device = useCameraDevice('back')
 
-const Error = props => {
-    return <>
-        <Text>{props.error}</Text>
-    </>
-}
-
-const Spinner = props => {
-    return <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
-        <ActivityIndicator size='large' color="#0000ff" />
-    </View>
-}
-
-const Posts = props => {
-    let initalState = {
-        isLoaded: false,
-        items: [],
-        error: null
-    }
-    const [posts, setPosts] = useState(initalState)
-
-    async function fetchPosts() {
-        try {
-            const url = 'https://jsonplaceholder.typicode.com/posts'
-            const values = await (await fetch(url)).json()
-            setPosts({ ...posts, isLoaded: true, items: posts.items.concat(values) })
-        }
-        catch (err) {
-            setPosts({ ...posts, isLoaded: true, error: err })
-        }
-    }
-    //useEffect : ComponentDidMount 
     useEffect(() => {
-        setTimeout(() => {
-            fetchPosts()
-        }, 5000)
-    }, [])
+        console.log('Available devices:', device);
+    }, [device]);
 
-    const onSelect = (item) => {
-        props.navigation.navigate('PostsDetails', item)
-    }
+    useEffect(() => {
+        const requestPermission = async () => {
+            const cameraPermission = await Camera.requestCameraPermission();
+            const microphonePermission = await Camera.requestMicrophonePermission();
 
-    const { error, isLoaded, items } = posts
-    if (error) {
-        return <Error error={error} />
-    } else if (!isLoaded) {
-        return <Spinner />
-    } else {
-        return <FlatList
-            data={items}
-            keyExtractor={item => item.id}
-            renderItem={({ item }) => {
-                return <TouchableHighlight activeOpacity={0.4} underlayColor='yellow' onPress={() => { onSelect(item) }} >
-                    <View>
-                        <Text style={styles.item}>{item.title}</Text>
-                    </View>
-                </TouchableHighlight>
-            }}
-        />
-    }
-
-}
-
-//Screens 
-//Screens 
-const HomeScreen = props => {
-    const { navigation: { navigate } } = props
-    const onMove = () => {
-        navigate('Posts')
-    }
-    return <View style={styles.container}>
-        <Text style={{
-            fontSize: 40,
-        }}>Home Screen</Text>
-        <Button title="Posts" onPress={onMove} />
-    </View>
-}
-
-const PostScreen = props => {
-    return <>
-        <Posts navigation={props.navigation} />
-    </>
-}
-
-const PostsDetailScreen = props => {
-    const { title, body } = props.route.params
-    return <View style={styles.container}>
-        <Text style={{ fontSize: 25, color: 'blue' }}>{title}</Text>
-        <Text style={{ fontSize: 20, color: 'red' }}>{body}</Text>
-    </View>
-}
-
-const App = props => {
-    return <NavigationContainer>
-        <Stack.Navigator screenOptions={{
-            headerStyle: {
-                backgroundColor: '#f4511e'
-            },
-            headerTintColor: 'blue',
-            headerTitleStyle: {
-                fontWeight: 'bold'
+            if (cameraPermission !== 'authorized' || microphonePermission !== 'authorized') {
+                Alert.alert('Permission denied', 'Camera or Microphone permission is required.');
             }
-        }}>
-            <Stack.Screen options={{
-                title: 'MyBlog', headerStyle: {
-                    backgroundColor: '#f4511e',
-                }
-            }} name="Home" component={HomeScreen} />
-            <Stack.Screen options={{ title: 'Post Screen' }} name="Posts" component={PostScreen} />
-            <Stack.Screen options={(navigation) => {
-                return {
-                    title: navigation.route.params.title
-                }
-            }} name="PostsDetails" component={PostsDetailScreen} />
-        </Stack.Navigator>
-    </NavigationContainer>
-}
-export default App;
+        };
+
+        requestPermission();
+    }, []);
+
+    if (device == null) {
+        return <Text>Loading camera...</Text>;
+    }
+
+    return (
+        <View style={styles.container}>
+            <Camera
+                style={StyleSheet.absoluteFill}
+                device={device}
+                isActive={true}
+            />
+            <View style={styles.buttonContainer}>
+                <Button title="Capture" onPress={() => Alert.alert('Feature not implemented')} />
+            </View>
+        </View>
+    );
+};
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: 'lightblue',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    item: {
+    container: { flex: 1 },
+    buttonContainer: {
+        position: 'absolute',
+        bottom: 20,
+        alignSelf: 'center',
+        backgroundColor: 'white',
+        borderRadius: 10,
         padding: 10,
-        fontSize: 18,
-        height: 44,
-        fontWeight: 'bold',
-        color: '#000'
-
     },
-    text: {
-        fontSize: 30,
-        textAlign: 'center',
-        color: '#000'
-    }
-})
+});
+
+export default App;
+
+
