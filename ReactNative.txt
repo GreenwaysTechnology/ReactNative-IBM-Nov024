@@ -736,7 +736,7 @@ Types of Views:
 
 
 ................................................................................
-			Scroll Behaviour
+		         	Scroll Behaviour
 .................................................................................
 
 View is going to hold child elements, act as container
@@ -1043,7 +1043,7 @@ const styles = StyleSheet.create({
 })
 
 ...................................................................................
-			 Spinner - ActivityIndicator
+			                      Spinner - ActivityIndicator
 ...................................................................................
 Displays a circular loading indicator.
 
@@ -1141,7 +1141,7 @@ const styles = StyleSheet.create({
 })
 
 ....................................................................................
-			 Select Item with Touchable Features
+			                      Select Item with Touchable Features
 .....................................................................................
 
 In order to add touchable features , react native offers many components
@@ -1244,7 +1244,7 @@ const styles = StyleSheet.create({
     }
 })
 .....................................................................................
-			Section List
+		                  	Section List
 .....................................................................................
 It is special List which shows data based on category, showing nested array.
 
@@ -1362,8 +1362,8 @@ const styles = StyleSheet.create({
 export default App;
 
 .....................................................................................
-			How to get Input from the User
-				TextInput
+			        How to get Input from the User
+				             TextInput
 ....................................................................................
 
 A foundatinonal Component for inputting text into the app via keyboard.
@@ -1417,13 +1417,8 @@ const styles = StyleSheet.create({
 });
 
 export default App;
-.......................................................................................................
-							
-
-
-
 ....................................................................................
-			Stylesheet - Layouts
+			                      Stylesheet - Layouts
 .....................................................................................
 Height and Width:
 ................
@@ -1548,7 +1543,7 @@ const App = () => {
 export default App;
 
 ...................................................................................
-							Layouts Design using Flex box
+							 Layouts Design using Flex box
 ....................................................................................
 
 CSS supports multiple layout methodology.
@@ -1681,27 +1676,7 @@ const styles = StyleSheet.create({
     }
 })
 .....................................................................................
-			   Flex direction Properties
-....................................................................................
-
-flexDirection property controls the direction in which the children(flex items) are laid out within child element.
-
-flex direction has values:
-
-1.column:
-     Align childrens top to bottom which is default.
-
-2.row:
-    Align childrens left to right
-
-3.column-reverse:
-    Align childrens from the bottom to top.
-
-4.row-reverse:
-   Align childrens right to left.
-
-.....................................................................................
-			   Flex direction Properties
+			                      Flex direction Properties
 ....................................................................................
 
 flexDirection property controls the direction in which the children(flex items) are laid out within child element.
@@ -1819,7 +1794,7 @@ RTL:
 https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c
 https://reactnative.dev/docs/flexbox
 ....................................................................................
-			Aligning Child elements(Flex Items)
+			              Aligning Child elements(Flex Items)
 ....................................................................................
 
 In order to align flex items within container we have properties
@@ -1830,6 +1805,1638 @@ In order to align flex items within container we have properties
 4.Align Content
 5.Flex wrap
 ....................................................................................................
+Justify Content:
+................
+
+Justify content:
+  Align flex items within the main axis(x axis) of their container.
+
+Flex Direction says that how to organize either row or column
+
+justifyContent: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly'
+
+
+Flex Direction: row,column,row-reverse,column-reverse + flex-start
+...................................................................
+import { StyleSheet, View } from "react-native";
+
+const App = () => {
+    return <View style={styles.container}>
+        <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+    </View>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        //flexDirection: 'column',
+        //flexDirection: 'row',
+        //flexDirection: 'column-reverse',
+        flexDirection: 'row-reverse',
+        justifyContent: 'flex-start',
+        backgroundColor: 'pink'
+    }
+})
+
+Flex Direction: row,column,row-reverse,column-reverse + flex-end
+...................................................................
+
+import { StyleSheet, View } from "react-native";
+
+const App = () => {
+    return <View style={styles.container}>
+        <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+    </View>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        // flexDirection: 'column',
+        //flexDirection: 'row',
+        //flexDirection: 'column-reverse',
+        flexDirection: 'row-reverse',
+        justifyContent: 'flex-end',
+        backgroundColor: 'pink'
+    }
+})
+.....................................................................................
+Flex Direction: row,column,row-reverse,column-reverse + center
+...................................................................
+import { StyleSheet, View } from "react-native";
+
+const App = () => {
+    return <View style={styles.container}>
+        <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+    </View>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        // flexDirection: 'column',
+        //flexDirection: 'row',
+        //flexDirection: 'column-reverse',
+        flexDirection: 'row-reverse',
+        justifyContent: 'center',
+        backgroundColor: 'pink'
+    }
+})
+Flex Direction: row,column,row-reverse,column-reverse + space-between.
+
+  Evenly space off children across the container's main axis,
+distributing the remaining space between the children.
+
+import { StyleSheet, View } from "react-native";
+
+const App = () => {
+    return <View style={styles.container}>
+        <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+    </View>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        //flexDirection: 'column',
+        //flexDirection: 'row',
+        //flexDirection: 'column-reverse',
+        flexDirection: 'row-reverse',
+        justifyContent: 'space-between',
+        backgroundColor: 'pink'
+    }
+})
+....................................................................................
+Flex Direction: row,column,row-reverse,column-reverse + space-around
+
+  Evenly space off children across the container's main axis,
+distributing the remaining space around the children.
+  Compared to space-between and space around will result in space being distributed to the begining of first child and end of the last child.
+
+
+import { StyleSheet, View } from "react-native";
+
+const App = () => {
+    return <View style={styles.container}>
+        <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+    </View>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        //flexDirection: 'column',
+        //flexDirection: 'row',
+        //flexDirection: 'column-reverse',
+        flexDirection: 'row-reverse',
+        justifyContent: 'space-around',
+        backgroundColor: 'pink'
+    }
+})
+
+Flex Direction: row,column,row-reverse,column-reverse + space-evenly
+
+Evenly distribute children within the alignment container along the main axis.
+The spacing between each pair of adjacent items, the main-start edge and the first item, and the main end edge and the last item, are all exactly the same.
+
+import { StyleSheet, View } from "react-native";
+
+const App = () => {
+    return <View style={styles.container}>
+        <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+    </View>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        // flexDirection: 'column',
+        //flexDirection: 'row',
+        //flexDirection: 'column-reverse',
+        flexDirection: 'row-reverse',
+        justifyContent: 'space-evenly',
+        backgroundColor: 'pink'
+    }
+})
+...........................................................................................................................................................
+
+Align items:
+...........
+
+Align Items describes how to align children along with cross axis(y) of the container.
+It is similar to JustifyContent but instead of applying to the main axis, alignItems applies to the cross axis.
+
+AlignItems: 'stretch' | 'flex-start',|'flex-end' | 'center'| 'baseline'
+
+stretch:
+ It is default value , Stretch children of a container to match the "height" of the container's cross axis
+
+Flex Direction: row,column,row-reverse,column-reverse + stretch.
+
+
+import { StyleSheet, View } from "react-native";
+
+const App = () => {
+    return <View style={styles.container}>
+        <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+        {/* <View style={{ width: 50, height: 50, backgroundColor: 'green' }} /> */}
+        <View style={{ height: 100, backgroundColor: 'steelblue', width: 'auto', minWidth: 50 }} />
+    </View>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        // flexDirection: 'column',
+        //flexDirection: 'row',
+        //flexDirection: 'column-reverse',
+        // flexDirection: 'row-reverse',
+        alignItems: 'stretch',
+        backgroundColor: 'pink'
+    }
+})
+...................
+
+Flex Direction: row,column,row-reverse,column-reverse + flex-start
+
+
+import { StyleSheet, View } from "react-native";
+
+const App = () => {
+    return <View style={styles.container}>
+        <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+
+    </View>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        //flexDirection: 'column',
+        //flexDirection: 'row',
+        flexDirection: 'column-reverse',
+        //flexDirection: 'row-reverse',
+        alignItems: 'flex-start',
+        backgroundColor: 'pink'
+    }
+})
+...................................................................................
+
+Flex Direction: row,column,row-reverse,column-reverse + flex-end
+
+
+import { StyleSheet, View } from "react-native";
+
+const App = () => {
+    return <View style={styles.container}>
+        <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+
+    </View>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        //flexDirection: 'column',
+        //flexDirection: 'row',
+        flexDirection: 'column-reverse',
+        //flexDirection: 'row-reverse',
+        alignItems: 'flex-end',
+        backgroundColor: 'pink'
+    }
+})
+
+Flex Direction: row,column,row-reverse,column-reverse + center
+
+
+import { StyleSheet, View } from "react-native";
+
+const App = () => {
+    return <View style={styles.container}>
+        <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+
+    </View>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        flexDirection: 'column',
+        //flexDirection: 'row',
+        // flexDirection: 'column-reverse',
+        // flexDirection: 'row-reverse',
+        alignItems: 'center',
+        backgroundColor: 'pink'
+    }
+})
+
+.....................................................................................
+			 Align Items + Justify Content
+.....................................................................................
+import { StyleSheet, View } from "react-native";
+
+const App = () => {
+    return <View style={styles.container}>
+        <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+
+    </View>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        flexDirection: 'column',
+        //flexDirection: 'row',
+        // flexDirection: 'column-reverse',
+        // flexDirection: 'row-reverse',
+        //alignItems: 'center',
+        //justifyContent: 'space-evenly',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        backgroundColor: 'pink'
+    }
+})
+import { StyleSheet, View } from "react-native";
+
+const App = () => {
+    return <View style={styles.container}>
+        <View style={{
+            alignSelf: 'stretch',
+            width: 'auto',
+            minWidth: 50,
+            height: 50,
+            width: 50,
+            backgroundColor: 'red',
+        }}
+
+        />
+        <View style={{
+            backgroundColor: 'skyblue', alignSelf: 'center', height: 50,
+            width: 50
+        }} />
+        <View style={{
+            height: 50,
+            width: 50, backgroundColor: 'steelblue', alignSelf: 'flex-end'
+        }} />
+
+    </View>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'pink',
+        height: 60,
+    }
+})
+...................................................................................
+			Flex wrap
+..................................................................................\
+if more childrens beyond container size, it starts overflow, in order avoid overflow
+meaning that you want to lay elements within container... we can use flex wrap.
+
+import { StyleSheet, View, Text } from "react-native";
+
+const App = () => {
+    return <View style={styles.container}>
+        <Text style={styles.headerStyle}>Flex wrap</Text>
+        <View style={styles.elementsContainer}>
+            <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+
+            <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+
+            <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+
+
+        </ View>
+    </View>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    },
+    headerStyle: {
+        fontSize: 29,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        marginBottom: 24,
+        color: 'blue'
+    },
+    elementsContainer: {
+        flex: 1,
+        backgroundColor: 'black',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        marginBottom: 24
+    }
+
+})
+
+....................................................................................
+				Gap
+....................................................................................
+
+How to allocate space among elements?
+
+ Flex gap
+ =>Column gap
+ =>Row gap				
+
+
+import { StyleSheet, View, Text } from "react-native";
+
+const App = () => {
+    return <View style={styles.container}>
+        <Text style={styles.headerStyle}>Flex wrap</Text>
+        <View style={styles.elementsContainer}>
+            <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+
+            <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+
+            <View style={{ width: 50, height: 50, backgroundColor: 'yellow' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'white' }} />
+            <View style={{ width: 50, height: 50, backgroundColor: 'blue' }} />
+
+
+        </ View>
+    </View>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    },
+    headerStyle: {
+        fontSize: 29,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        marginBottom: 24,
+        color: 'blue'
+    },
+    elementsContainer: {
+        flex: 1,
+        backgroundColor: 'black',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        rowGap: 10,
+        columnGap: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 24
+    }
+
+})
+.......................................................................................................
+											Calculator Using layouts
+........................................................................................................									
+State Variables:
+
+input: Holds the expression entered by the user (e.g., 7+8*2).
+
+result: Displays the evaluated result of the expression.
+
+
+Layout:
+
+Display Section:
+
+Shows the current input and the result.
+
+Positioned at the top with a dark background.
+
+Buttons Section:
+ Organized using a 5x4 grid for the buttons.
+ Each row is created with Flexbox for proper alignment.
+
+Button Handling:
+
+Buttons like numbers and operators append their value to the input.
+
+The = button evaluates the expression using eval and updates result.
+
+The C button clears the input and result.
+
+Styling:
+
+Flexbox ensures responsive layouts.
+Buttons have consistent spacing, rounded corners, and a dynamic height.
+The = button is highlighted for prominence.
+
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+
+
+function App() {
+    const [input, setInput] = useState('');
+    const [result, setResult] = useState('');
+
+    const handlePress = (value) => {
+        if (value === '=') {
+            try {
+                // Evaluate the expression
+                setResult(eval(input).toString());
+            } catch (error) {
+                setResult('Error');
+            }
+        } else if (value === 'C') {
+            setInput('');
+            setResult('');
+        } else {
+            setInput((prev) => prev + value);
+        }
+    };
+
+    return <View style={styles.container}>
+        {/* Display */}
+        <View style={styles.display}>
+            <Text style={styles.inputText}>{input}</Text>
+            <Text style={styles.resultText}>{result}</Text>
+        </View>
+
+        {/* Buttons */}
+        <View style={styles.buttonsContainer}>
+            {[
+                ['C', '(', ')', '/'],
+                ['7', '8', '9', '*'],
+                ['4', '5', '6', '-'],
+                ['1', '2', '3', '+'],
+                ['0', '.', '=', '%'],
+            ].map((row, rowIndex) => (
+                <View style={styles.row} key={rowIndex}>
+                    {row.map((button) => (
+                        <TouchableOpacity
+                            key={button}
+                            style={[styles.button, button === '=' && styles.equalButton]}
+                            onPress={() => handlePress(button)}
+                        >
+                            <Text
+                                style={[
+                                    styles.buttonText,
+                                    button === '=' && styles.equalButtonText,
+                                ]}
+                            >
+                                {button}
+                            </Text>
+                        </TouchableOpacity>
+                    ))}
+                </View>
+            ))}
+        </View>
+    </View>
+
+
+}
+export default App;
+
+export const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#282c34',
+    },
+    display: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'flex-end',
+        backgroundColor: '#1c1e22',
+        padding: 20,
+    },
+    inputText: {
+        fontSize: 36,
+        color: '#fff',
+        marginBottom: 10,
+    },
+    resultText: {
+        fontSize: 24,
+        color: '#a9a9a9',
+    },
+    buttonsContainer: {
+        flex: 2,
+        backgroundColor: '#000',
+        padding: 10,
+    },
+    row: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    button: {
+        flex: 1,
+        margin: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#444',
+        borderRadius: 8,
+        height: '80%', // Maintain height consistency
+    },
+    buttonText: {
+        fontSize: 24,
+        color: '#fff',
+    },
+    equalButton: {
+        backgroundColor: '#f39c12',
+    },
+    equalButtonText: {
+        fontWeight: 'bold',
+    },
+});
+.....................................................................................	
+						 React Native Navigation
+....................................................................................
+			
+How navigation works?
+
+In a web browser, you can link to different pages using an anchor (<a>) tag. When the user clicks on a link, the URL is pushed to the browser history stack.
+
+ When the user presses the back button, the browser pops the item from the top of the history stack, so the active page is now the previously visited page.
+
+React Native doesn't have a built-in idea of a global history stack like a web browser does -- this is where React Navigation enters the story.
+
+React Native Navigation's stack navigator provides a way for your app to transition between screens and manage navigation history.
+
+If your app uses only one stack navigator then it is conceptually similar to how a web browser handles navigation state - your app pushes and pops items from the navigation stack as users interact with it, and this results in the user seeing different screens. 
+
+A key difference between how this works in a web browser and in React Navigation is that React Navigation's stack navigator provides the gestures and animations that you would expect on Android and iOS when navigating between routes in the stack.
+
+Core concepts in React Native Navigation:
+.........................................
+
+1.Screen
+   =>It is a special component,which only display Userinterface, not having any logic      It acts container.
+2.Component
+   => It is component having biz logic and ui logic...
+
+
+Getting Started:
+
+create new project:
+
+npx react-native@latest init NavigationApp
+
+in case your project is in "React Native cli"
+in case your project is in "Expo work flow"
+
+Common for both projects:
+
+npm install @react-navigation/native @react-navigation/native-stack
+
+For Bare React Native project:
+
+npm install react-native-screens react-native-safe-area-context
+
+
+For Expo Managed Projects
+npx expo install react-native-screens react-native-safe-area-context
+
+React Navigation container or parent object is "Navigation Container".
+
+
+...................................................................................
+...................................................................................
+				Multi screen-Page
+.................................................................................
+
+Types of navigation:
+1.screen to screen - stack navigation -  @react-navigation/stack
+2.Tab - tab based navivation.  @react-navigation/bottom-tabs
+3.Drawer -Drawer navigation.   @react-navigation/drawer
+
+
+Stack Navigation:
+
+Moving among screens: How to move from one screen to another screen?
+
+StackNavigator :
+ 
+ Object used to navigate between screen.
+
+ Stack Object used to  represent stack navigator.
+
+import { createNativeStackNavigator } from "@react-navigation/native-stack";//create 
+Stack Object
+const Stack  = createNativeStackNavigator();
+console.log(Stack)
+
+Object {
+  "Navigator": [Function StackNavigator],
+  "Screen": [Function Screen],
+}
+
+
+1.createStackNavigator is a function that returns an object containing 2 properties: Screen and Navigator.
+2.Both of them are React components used for configuring the navigator.
+The Navigator should contain Screen elements as its children to define the configuration for routes.
+
+3.NavigationContainer is a component which manages our navigation tree and contains the navigation state. This component must wrap all navigators structure. Usually, we'd render this component at the root of our app, which is usually the component exported from App.js.
+
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StyleSheet, View, Text } from 'react-native'
+
+const Stack = createNativeStackNavigator();
+
+//Screens 
+const HomeScreen = () => <View style={styles.container}>
+    <Text style={{
+        fontSize: 40,
+    }}>Home Screen</Text>
+</View>
+
+const ProfileScreen = () => <View style={styles.container}>
+    <Text style={{
+        fontSize: 40,
+    }}>Profile Screen</Text>
+</View>
+
+const App = props => {
+    return <NavigationContainer>
+        <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+        </Stack.Navigator>
+    </NavigationContainer>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'lightblue',
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+})
+..................................................................................
+			   How to move between screens
+..................................................................................
+
+Navigating to a new screen​
+
+Every Component receives information from the parent component as a prop.
+When component is rendered via route,React Navigator injects an object called "Navigation" Object as prop to every Component
+
+
+Props;
+Object {
+  "navigation": Object {
+    "addListener": [Function addListener],
+    "canGoBack": [Function canGoBack],
+    "dispatch": [Function dispatch],
+    "getId": [Function getId],
+    "getParent": [Function getParent],
+    "getState": [Function anonymous],
+    "goBack": [Function anonymous],
+    "isFocused": [Function isFocused],
+    "navigate": [Function anonymous],
+    "pop": [Function anonymous],
+    "popToTop": [Function anonymous],
+    "push": [Function anonymous],
+    "removeListener": [Function removeListener],
+    "replace": [Function anonymous],
+    "reset": [Function anonymous],
+    "setOptions": [Function setOptions],
+    "setParams": [Function anonymous],
+  },
+  "route": Object {
+    "key": "Home-V-z_dGCJfqcHgNXxzxRGK",
+    "name": "Home",
+    "params": undefined,
+  },
+
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StyleSheet, View, Text, Button } from 'react-native'
+
+const Stack = createNativeStackNavigator();
+
+//Screens 
+const HomeScreen = (props) => <View style={styles.container}>
+    <Text style={{
+        fontSize: 40,
+    }}>Home Screen</Text>
+    <Button title="Profile" onPress={() => {
+        props.navigation.navigate('Profile')
+    }} />
+</View>
+
+const ProfileScreen = () => <View style={styles.container}>
+    <Text style={{
+        fontSize: 40,
+    }}>Profile Screen</Text>
+</View>
+
+const App = props => {
+    return <NavigationContainer>
+        <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Profile" component={ProfileScreen} />
+        </Stack.Navigator>
+    </NavigationContainer>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'lightblue',
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+})
+.....................................................................................
+		     	Passing parameters screen to screen
+.....................................................................................
+import { View, StyleSheet, Text, Button } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";//create 
+
+//screen navigation: screen to screen.
+//Create Stack Object
+const Stack = createNativeStackNavigator()
+
+//Component- Screen
+const HomeScreen = props => {
+
+    const onMove = () => {
+        //write logic to navigate from this screen into another screen(profile)
+        props.navigation.navigate("Profile", { id: 1, name: 'Subramanian' })
+    }
+
+    return <View style={styles.container}>
+        <Text style={styles.label}>Home Screen</Text>
+        <Button title="Profile" onPress={onMove} />
+    </View>
+}
+const ProfileScreen = props => {
+    const profile = props.route.params
+    return <View style={styles.container}>
+        <Text style={styles.label}>Profile Screen</Text>
+        <Text style={styles.label}>{profile.id} {profile.name}</Text>
+    </View>
+}
+
+
+function App() {
+    return <NavigationContainer>
+        {/* Stack Navigation */}
+        <Stack.Navigator>
+            {/* List of Screen */}
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Profile" component={ProfileScreen} />
+        </Stack.Navigator>
+    </NavigationContainer>
+}
+
+export default App;
+
+//styles
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'pink',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    label: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: 'blue'
+    }
+})
+.....................................................................................
+			Master details page- web service integration
+....................................................................................
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StyleSheet, View, Text, Button, TouchableHighlight, FlatList, ActivityIndicator } from 'react-native'
+import { useState, useEffect } from "react";
+
+const Stack = createNativeStackNavigator();
+
+const Error = props => {
+    return <>
+        <Text>{props.error}</Text>
+    </>
+}
+
+const Spinner = props => {
+    return <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+        <ActivityIndicator size='large' color="#0000ff" />
+    </View>
+}
+
+const Posts = props => {
+    let initalState = {
+        isLoaded: false,
+        items: [],
+        error: null
+    }
+    const [posts, setPosts] = useState(initalState)
+
+    async function fetchPosts() {
+        try {
+            const url = 'https://jsonplaceholder.typicode.com/posts'
+            const values = await (await fetch(url)).json()
+            setPosts({ ...posts, isLoaded: true, items: posts.items.concat(values) })
+        }
+        catch (err) {
+            setPosts({ ...posts, isLoaded: true, error: err })
+        }
+    }
+    //useEffect : ComponentDidMount 
+    useEffect(() => {
+        setTimeout(() => {
+            fetchPosts()
+        }, 5000)
+    }, [])
+
+    const onSelect = (item) => {
+        props.navigation.navigate('PostsDetails', item)
+    }
+
+    const { error, isLoaded, items } = posts
+    if (error) {
+        return <Error error={error} />
+    } else if (!isLoaded) {
+        return <Spinner />
+    } else {
+        return <FlatList
+            data={items}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => {
+                return <TouchableHighlight activeOpacity={0.4} underlayColor='yellow' onPress={() => { onSelect(item) }} >
+                    <View>
+                        <Text style={styles.item}>{item.title}</Text>
+                    </View>
+                </TouchableHighlight>
+            }}
+        />
+    }
+
+}
+
+//Screens 
+//Screens 
+const HomeScreen = props => {
+    const { navigation: { navigate } } = props
+    const onMove = () => {
+        navigate('Posts')
+    }
+    return <View style={styles.container}>
+        <Text style={{
+            fontSize: 40,
+        }}>Home Screen</Text>
+        <Button title="Posts" onPress={onMove} />
+    </View>
+}
+
+const PostScreen = props => {
+    return <>
+        <Posts navigation={props.navigation} />
+    </>
+}
+
+const PostsDetailScreen = props => {
+    const { title, body } = props.route.params
+    return <View style={styles.container}>
+        <Text style={{ fontSize: 25, color: 'blue' }}>{title}</Text>
+        <Text style={{ fontSize: 20, color: 'red' }}>{body}</Text>
+    </View>
+}
+
+const App = props => {
+    return <NavigationContainer>
+        <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Posts" component={PostScreen} />
+            <Stack.Screen name="PostsDetails" component={PostsDetailScreen} />
+        </Stack.Navigator>
+    </NavigationContainer>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'lightblue',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    item: {
+        padding: 10,
+        fontSize: 18,
+        height: 44,
+        fontWeight: 'bold',
+        color: '#000'
+
+    },
+    text: {
+        fontSize: 30,
+        textAlign: 'center',
+        color: '#000'
+    }
+})
+.....................................................................................
+
+.....................................................................................				Configuring the Header Bar
+....................................................................................
+
+Header Title:
+ By default header title is name of the Route
+
+
+ <Stack.Screen name="Home" component={Home} />
+
+How to override the default Header title?
+
+   <Stack.Screen options={{title:'My Personal Diary'}} name="Home" component={Home} />
+
+How to update header dynamically based on some props?
+
+<Stack.Screen name="Profile" options={(navigation)=>{
+   return {
+	title:navigation.route.params.name || 'Your Header'
+   }
+}} component={Profile} />
+
+eg:
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StyleSheet, View, Text, Button, TouchableHighlight, FlatList, ActivityIndicator } from 'react-native'
+import { useState, useEffect } from "react";
+
+const Stack = createNativeStackNavigator();
+
+const Error = props => {
+    return <>
+        <Text>{props.error}</Text>
+    </>
+}
+const Spinner = props => {
+    return <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+        <ActivityIndicator size='large' color="#0000ff" />
+    </View>
+}
+
+const Posts = props => {
+    let initalState = {
+        isLoaded: false,
+        items: [],
+        error: null
+    }
+    const [posts, setPosts] = useState(initalState)
+
+    async function fetchPosts() {
+        try {
+            const url = 'https://jsonplaceholder.typicode.com/posts'
+            const values = await (await fetch(url)).json()
+            setPosts({ ...posts, isLoaded: true, items: posts.items.concat(values) })
+        }
+        catch (err) {
+            setPosts({ ...posts, isLoaded: true, error: err })
+        }
+    }
+    //useEffect : ComponentDidMount 
+    useEffect(() => {
+        setTimeout(() => {
+            fetchPosts()
+        }, 5000)
+    }, [])
+
+    const onSelect = (item) => {
+        props.navigation.navigate('PostsDetails', item)
+    }
+
+    const { error, isLoaded, items } = posts
+    if (error) {
+        return <Error error={error} />
+    } else if (!isLoaded) {
+        return <Spinner />
+    } else {
+        return <FlatList
+            data={items}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => {
+                return <TouchableHighlight activeOpacity={0.4} underlayColor='yellow' onPress={() => { onSelect(item) }} >
+                    <View>
+                        <Text style={styles.item}>{item.title}</Text>
+                    </View>
+                </TouchableHighlight>
+            }}
+        />
+    }
+
+}
+
+//Screens 
+//Screens 
+const HomeScreen = props => {
+    const { navigation: { navigate } } = props
+    const onMove = () => {
+        navigate('Posts')
+    }
+    return <View style={styles.container}>
+        <Text style={{
+            fontSize: 40,
+        }}>Home Screen</Text>
+        <Button title="Posts" onPress={onMove} />
+    </View>
+}
+
+const PostScreen = props => {
+    return <>
+        <Posts navigation={props.navigation} />
+    </>
+}
+
+const PostsDetailScreen = props => {
+    const { title, body } = props.route.params
+    return <View style={styles.container}>
+        <Text style={{ fontSize: 25, color: 'blue' }}>{title}</Text>
+        <Text style={{ fontSize: 20, color: 'red' }}>{body}</Text>
+    </View>
+}
+
+const App = props => {
+    return <NavigationContainer>
+        <Stack.Navigator>
+            <Stack.Screen options={{ title: 'MyHome' }} name="Home" component={HomeScreen} />
+            <Stack.Screen name="Posts" component={PostScreen} />
+            <Stack.Screen options={(navigation) => {
+
+                //return screen object 
+                return {
+                    title: navigation.route.params.title || 'Profile Details'
+                }
+
+            }} name="PostsDetails" component={PostsDetailScreen} />
+        </Stack.Navigator>
+    </NavigationContainer>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'lightblue',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    item: {
+        padding: 10,
+        fontSize: 18,
+        height: 44,
+        fontWeight: 'bold',
+        color: '#000'
+
+    },
+    text: {
+        fontSize: 30,
+        textAlign: 'center',
+        color: '#000'
+    }
+})
+....................................................................................
+				Header styles
+....................................................................................
+
+
+There are three key properties to use when customizing the style of your header: headerStyle, headerTintColor, and headerTitleStyle.
+
+headerStyle: a style object that will be applied to the View that wraps the header. If you set backgroundColor on it, that will be the color of your header.
+
+headerTintColor: the back button and title both use this property as their color.
+
+headerTitleStyle: if we want to customize the fontFamily, fontWeight and other Text 
+Style properties for the title, we can use this to do it.
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StyleSheet, View, Text, Button, TouchableHighlight, FlatList, ActivityIndicator } from 'react-native'
+import { useState, useEffect } from "react";
+
+const Stack = createNativeStackNavigator();
+
+const Error = props => {
+    return <>
+        <Text>{props.error}</Text>
+    </>
+}
+const Spinner = props => {
+    return <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+        <ActivityIndicator size='large' color="#0000ff" />
+    </View>
+}
+
+const Posts = props => {
+    let initalState = {
+        isLoaded: false,
+        items: [],
+        error: null
+    }
+    const [posts, setPosts] = useState(initalState)
+
+    async function fetchPosts() {
+        try {
+            const url = 'https://jsonplaceholder.typicode.com/posts'
+            const values = await (await fetch(url)).json()
+            setPosts({ ...posts, isLoaded: true, items: posts.items.concat(values) })
+        }
+        catch (err) {
+            setPosts({ ...posts, isLoaded: true, error: err })
+        }
+    }
+    //useEffect : ComponentDidMount 
+    useEffect(() => {
+        setTimeout(() => {
+            fetchPosts()
+        }, 5000)
+    }, [])
+
+    const onSelect = (item) => {
+        props.navigation.navigate('PostsDetails', item)
+    }
+
+    const { error, isLoaded, items } = posts
+    if (error) {
+        return <Error error={error} />
+    } else if (!isLoaded) {
+        return <Spinner />
+    } else {
+        return <FlatList
+            data={items}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => {
+                return <TouchableHighlight activeOpacity={0.4} underlayColor='yellow' onPress={() => { onSelect(item) }} >
+                    <View>
+                        <Text style={styles.item}>{item.title}</Text>
+                    </View>
+                </TouchableHighlight>
+            }}
+        />
+    }
+
+}
+
+//Screens 
+//Screens 
+const HomeScreen = props => {
+    const { navigation: { navigate } } = props
+    const onMove = () => {
+        navigate('Posts')
+    }
+    return <View style={styles.container}>
+        <Text style={{
+            fontSize: 40,
+        }}>Home Screen</Text>
+        <Button title="Posts" onPress={onMove} />
+    </View>
+}
+
+const PostScreen = props => {
+    return <>
+        <Posts navigation={props.navigation} />
+    </>
+}
+
+const PostsDetailScreen = props => {
+    const { title, body } = props.route.params
+    return <View style={styles.container}>
+        <Text style={{ fontSize: 25, color: 'blue' }}>{title}</Text>
+        <Text style={{ fontSize: 20, color: 'red' }}>{body}</Text>
+    </View>
+}
+
+const App = props => {
+    return <NavigationContainer>
+        <Stack.Navigator>
+            <Stack.Screen options={{
+                title: 'MyHome', headerStyle: {
+                    backgroundColor: 'light blue'
+                }
+            }} name="Home" component={HomeScreen} />
+            <Stack.Screen name="Posts" component={PostScreen} />
+            <Stack.Screen options={(navigation) => {
+                //return options  object 
+                return {
+                    title: navigation.route.params.title || 'Profile Details',
+                    headerStyle: {
+                        backgroundColor: 'pink'
+                    },
+                    headerTintColor: 'blue',
+                    headerTitleStyle: {
+                        fontWeight: 'bold',
+                        fontFamily: 'fantasy'
+                    }
+                }
+
+            }} name="PostsDetails" component={PostsDetailScreen} />
+        </Stack.Navigator>
+    </NavigationContainer>
+}
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'lightblue',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    item: {
+        padding: 10,
+        fontSize: 18,
+        height: 44,
+        fontWeight: 'bold',
+        color: '#000'
+
+    },
+    text: {
+        fontSize: 30,
+        textAlign: 'center',
+        color: '#000'
+    }
+})
+
+....................................................................................
+			 Screen Options vs options and Header Button
+....................................................................................
+
+Suppose i want to share common style for all screens,Screen options are used to set common styles for all screens.
+
+       <Stack.Navigator screenOptions={{
+            headerStyle: {
+                backgroundColor: '#f4511e'
+            },
+            headerTintColor: 'blue',
+            headerTitleStyle: {
+                fontWeight: 'bold'
+            }
+        }}>
+
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StyleSheet, View, Text, Button, TouchableHighlight, FlatList, ActivityIndicator, Alert } from 'react-native'
+import { useState, useEffect } from "react";
+
+
+//create Stack Object
+const Stack = createNativeStackNavigator();
+
+
+const Error = props => {
+    return <>
+        <Text>{props.error}</Text>
+    </>
+}
+const Spinner = props => {
+    return <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+        <ActivityIndicator size='large' color="#0000ff" />
+    </View>
+}
+const Posts = props => {
+    let initalState = {
+        isLoaded: false,
+        items: [],
+        error: null
+    }
+    const [posts, setPosts] = useState(initalState)
+
+    console.log('Posts props')
+    console.log(props)
+
+    async function fetchPosts() {
+        try {
+            const url = 'https://jsonplaceholder.typicode.com/posts'
+            const values = await (await fetch(url)).json()
+            setPosts({ ...posts, isLoaded: true, items: posts.items.concat(values) })
+        }
+        catch (err) {
+            setPosts({ ...posts, isLoaded: true, error: err })
+        }
+    }
+    //useEffect : ComponentDidMount 
+    useEffect(() => {
+        setTimeout(() => {
+            fetchPosts()
+        }, 5000)
+    }, [])
+
+    const onSelect = (item) => {
+        props.navigation.navigate('PostsDetails', item)
+    }
+
+    const { error, isLoaded, items } = posts
+    if (error) {
+        return <Error error={error} />
+    } else if (!isLoaded) {
+        return <Spinner />
+    } else {
+        return <FlatList
+            data={items}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => {
+                return <TouchableHighlight activeOpacity={0.4} underlayColor='yellow' onPress={() => { onSelect(item) }} >
+                    <View>
+                        <Text style={styles.item}>{item.title}</Text>
+                    </View>
+                </TouchableHighlight>
+            }}
+        />
+    }
+
+}
+
+
+
+
+//Screens 
+const HomeScreen = props => {
+    // const { navigation: { navigate } } = props
+    // const onMove = () => {
+    //     navigate('Posts')
+    // }
+    return <View style={styles.container}>
+        <Text style={{
+            fontSize: 40,
+        }}>Home Screen</Text>
+        {/* <Button title="Posts" onPress={onMove} /> */}
+    </View>
+}
+const PostScreen = props => {
+    return <>
+        <Posts navigation={props.navigation} />
+    </>
+}
+
+const PostsDetailScreen = props => {
+
+    const { title, body } = props.route.params
+
+    return <View style={styles.container}>
+        <Text style={{ fontSize: 25, color: 'blue' }}>{title}</Text>
+        <Text style={{ fontSize: 20, color: 'red' }}>{body}</Text>
+    </View>
+}
+
+
+
+const App = props => {
+    return <NavigationContainer>
+        <Stack.Navigator screenOptions={{
+            headerStyle: {
+                backgroundColor: '#f4511e'
+            },
+            headerTintColor: 'blue',
+            headerTitleStyle: {
+                fontWeight: 'bold'
+            }
+        }}>
+            <Stack.Screen options={(navigation) => {
+                console.log('inside navigation')
+                console.log(navigation)
+                const onMove = () => {
+                    Alert.alert('clicked')
+                    //navigation.navigate('Posts')
+                }
+                return {
+                    title: 'My Posts App',
+                    headerRight: () => {
+                        return <Button title="Posts" onPress={onMove} />
+                    }
+                }
+            }} name="Home" component={HomeScreen} />
+            <Stack.Screen name="Posts" component={PostScreen} />
+            <Stack.Screen options={(navigation) => {
+                return {
+                    title: navigation.route.params.title || 'Your Blog',
+                    headerTintColor: 'blue',
+                    headerTitleStyle: {
+                        fontWeight: 'bold'
+                    }
+                }
+            }} name="PostsDetails" component={PostsDetailScreen} />
+        </Stack.Navigator>
+    </NavigationContainer>
+}
+
+
+export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'lightblue',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    item: {
+        padding: 10,
+        fontSize: 18,
+        height: 44,
+        fontWeight: 'bold',
+        color: '#000'
+
+    },
+    text: {
+        fontSize: 30,
+        textAlign: 'center',
+        color: '#000'
+    }
+})
 
 
 
@@ -1837,4 +3444,4 @@ In order to align flex items within container we have properties
 
 
 
-
+   

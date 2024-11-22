@@ -98,26 +98,10 @@ const PostsDetailScreen = props => {
 
 const App = props => {
     return <NavigationContainer>
-        <Stack.Navigator screenOptions={{
-            headerStyle: {
-                backgroundColor: '#f4511e'
-            },
-            headerTintColor: 'blue',
-            headerTitleStyle: {
-                fontWeight: 'bold'
-            }
-        }}>
-            <Stack.Screen options={{
-                title: 'MyBlog', headerStyle: {
-                    backgroundColor: '#f4511e',
-                }
-            }} name="Home" component={HomeScreen} />
-            <Stack.Screen options={{ title: 'Post Screen' }} name="Posts" component={PostScreen} />
-            <Stack.Screen options={(navigation) => {
-                return {
-                    title: navigation.route.params.title
-                }
-            }} name="PostsDetails" component={PostsDetailScreen} />
+        <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Posts" component={PostScreen} />
+            <Stack.Screen name="PostsDetails" component={PostsDetailScreen} />
         </Stack.Navigator>
     </NavigationContainer>
 }
